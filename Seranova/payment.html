@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SERANOVA</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        body {
+			font-family: sans-serif;
+			margin: 20px;
+			background-color: #C9A9D7; /* Soft lavender background */
+			display: flex;
+			justify-content: center;
+			min-height: 100vh; /* To ensure the background covers the whole page */
+		}
+
+		.container {
+			background-color: #fff;
+			padding: 30px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			width: 80%;
+			max-width: 600px;
+			text-align: center;
+			border: 1px solid #2D3E49; /* Soft border to match the header */
+		}
+
+		h1, h2 {
+			color: #2D3E49; /* Dark blue for headers */
+			margin-bottom: 20px;
+		}
+		#artist-name {
+			margin-top: 0;
+		}
+
+		.summary {
+			margin-bottom: 30px;
+			padding: 15px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			background-color: #f9f9f9;
+		}
+
+		.form-group {
+			margin-bottom: 15px;
+			text-align: left;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+			color: #2D3E49; /* Dark blue for labels */
+		}
+
+		input[type="text"],
+		input[type="number"] {
+			width: calc(100% - 12px);
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			font-size: 16px;
+		}
+
+		button {
+			background-color: #2D3E49; /* Dark blue button */
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+			width: 100%;
+		}
+
+		button:hover {
+			background-color: #1a2b34; /* Darker blue for hover effect */
+		}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Payment Details</h1>
+        </header>
+        <main>
+		<div class="summary">
+			<h2 id="artist-name"></h2>
+			<div id="seat-category" style="font-weight: bold; margin-bottom: 15px;"></div>
+
+			<p><strong>Price per Ticket:</strong> <span id="price-multiplied"></span></p>
+			<p><strong>Subtotal:</strong> RM <span id="total-price"></span></p>
+			<p><strong>Tax (5%):</strong> RM <span id="tax-amount"></span></p>
+
+			<hr style="margin: 15px 0; border-top: 1px solid #ccc;">
+
+			<div style="font-size: 1.1em;">
+				<div><strong>Grand Total:</strong> RM <span id="grand-total"></span></div>
+			</div>
+		</div>
+
+            <h2>Payment Information</h2>
+				<form id="paymentForm">	
+                <div class="form-group">
+                    <label for="name">Name on Card:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="card_number">Card Number:</label>
+					<input type="text" id="card_number" name="card_number" 
+						   placeholder="XXXX-XXXX-XXXX-XXXX" 
+						   required pattern="\d{4}-\d{4}-\d{4}-\d{4}" title="Format: XXXX-XXXX-XXXX-XXXX">                </div>
+                <div class="form-group">
+                    <label for="expiry_date">Expiry Date (MM/YY):</label>
+                    <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YY" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" required pattern="\d{3}" title="CVV must be 3 digits">
+                </div>
+                <button type="submit">Pay Now</button>
+            </form>
+        </main>
+    </div>
+    
+	<!--Script use to pass data-->
+	<script>
+		// Get artist_id from URL and store it
+		const urlParams = new URLSearchParams(window.location.search);
+		const artistId = urlParams.get('artist_id');
+		if (artistId) {
+			localStorage.setItem("artistId", artistId);
+		}
+
+		// Set text info
+		const seatPrice = parseFloat(localStorage.getItem("seatPrice") || 0);
+		const numPeople = parseInt(localStorage.getItem("numPeople") || 0);
+		const totalPrice = seatPrice * numPeople;
+		const taxAmount = (totalPrice * 0.05).toFixed(2);
+		const grandTotal = (totalPrice + parseFloat(taxAmount)).toFixed(2);
+
+		document.getElementById("seat-category").innerText = localStorage.getItem("seatCategory") || "N/A";
+		document.getElementById("price-multiplied").innerText = `RM ${seatPrice.toFixed(2)} x ${numPeople}`;
+		document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+		document.getElementById("tax-amount").innerText = taxAmount;
+		document.getElementById("grand-total").innerText = grandTotal;
+		document.getElementById("artist-name").innerText = localStorage.getItem("artistName") || "N/A";
+
+		// When user submits form, redirect to receipt.php with data via POST
+		document.getElementById("paymentForm").addEventListener("submit", function(event) {
+			event.preventDefault();
+
+			const form = document.createElement("form");
+			form.method = "POST";
+			form.action = "receipt.php";
+
+			const addField = (name, value) => {
+				const input = document.createElement("input");
+				input.type = "hidden";
+				input.name = name;
+				input.value = value;
+				form.appendChild(input);
+			};
+
+			addField("artist_id", localStorage.getItem("artistId"));
+			addField("numPeople", localStorage.getItem("numPeople"));
+			addField("sitTogether", localStorage.getItem("sitTogether") || "no");
+			addField("paymentMethod", "Card");
+
+			document.body.appendChild(form);
+			addField("grandTotal", grandTotal);
+			form.submit();
+		});
+	</script>
+</body>
+</html>
