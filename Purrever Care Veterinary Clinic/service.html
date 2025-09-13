@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services | Purrever Care Veterinary Clinic</title>
+   <link rel="icon" type="image/png" href="images/logo2.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+	header {
+	  background-color: #00274d;
+	  padding: 20px;
+	  text-align: center;
+	}
+
+	.logo {
+	  width: 550px;
+	  height: auto;
+	  display: block;
+	  margin: 0 auto;
+	}
+		
+	.section-title {
+	  text-align: center;
+	  font-size: 2.5em;
+	  margin: 40px 0 20px;
+	  color: #00274d;
+	  font-weight: bold;
+	  position: relative;
+	}
+
+	.section-title::after {
+	  content: '';
+	  display: block;
+	  width: 60px;
+	  height: 4px;
+	  background-color: #0055a5;
+	  margin: 10px auto 0;
+	  border-radius: 2px;
+	}
+
+    nav {
+      background-color: #0055a5;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+	
+	nav a.active {
+	  border-bottom: 3px solid #ffffff;
+	}
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #0055a5;
+	  min-width: 160px;
+	  text-align: left;
+	  z-index: 1;
+	  border-radius: 5px;
+	}
+
+	.dropdown-content a {
+	  color: white;
+	  padding: 10px 16px;
+	  display: block;
+	  text-decoration: none;
+	  font-weight: normal;
+	}
+
+	.dropdown-content a:hover {
+	  background-color: #003f7f;
+	}
+
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .service-card {
+      border: 3px solid #0055a5;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+
+	.service-card img {
+	  width: 250px;
+	  height: 250px;
+	  object-fit: cover;
+	  border-radius: 10px;
+	  margin-bottom: 15px;
+	}
+
+    .service-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0055a5;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .service-card a:hover {
+      background-color: #003f7f;
+    }
+.service-card h3 {
+  font-size: 1.3em;
+  margin: 10px 0 5px;
+  color: #00274d;
+}
+
+.service-card p {
+  font-size: 0.95em;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+    footer {
+      background-color: #00274d;
+      text-align: center;
+      padding: 15px;
+      color: white;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Purrever Care Logo" class="logo">
+</header>
+
+<nav>
+  <a href="Interface.html">Home</a>
+  <a href="aboutus.html">About Us</a>
+
+  <div class="dropdown">
+    <a href="service.html" class="active">Services</a>
+    <div class="dropdown-content">
+      <a href="checkup.html">Checkup</a>
+      <a href="vaccination.html">Vaccination</a>
+      <a href="surgery.html">Surgery</a>
+      <a href="grooming.html">Grooming</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="shop.html">Shop</a>
+    <div class="dropdown-content">
+      <a href="petfood.html">Pet Food</a>
+      <a href="supplement.html">Supplements</a>
+      <a href="others.html">Others</a>
+    </div>
+  </div>
+
+  <a href="appointment.html">Appointment</a>
+  <a href="account.html">Account</a>
+</nav>
+	
+<h2 class="section-title">Our Services</h2>	
+	
+<section class="services-container">
+  <div class="service-card">
+    <img src="images/general.JPG" alt="General Checkup">
+    <h3>General Checkup</h3>
+    <p>Routine health exams to ensure your pet’s well-being.</p>
+    <a href="checkup.html">Read More</a>
+  </div>
+  <div class="service-card">
+    <img src="images/vaccine.PNG" alt="Vaccination">
+    <h3>Vaccination</h3>
+    <p>Protect your pets with essential and seasonal vaccines.</p>
+    <a href="vaccination.html">Read More</a>
+  </div>
+  <div class="service-card">
+    <img src="images/surgery.PNG" alt="Surgery">
+    <h3>Surgery</h3>
+    <p>Safe, professional procedures for a range of pet needs.</p>
+    <a href="surgery.html">Read More</a>
+  </div>
+  <div class="service-card">
+    <img src="images/grooming.JPG" alt="Grooming">
+    <h3>Grooming</h3>
+    <p>Keep your pet clean, trimmed, and looking their best.</p>
+    <a href="grooming.html">Read More</a>
+  </div>
+</section>
+
+<footer>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 50px 50px; background-color: #00274d; color: white; text-align: left;">
+    
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">Menu</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="Interface.html" style="color: white; text-decoration: none;">Home</a></li>
+        <li><a href="aboutus.html" style="color: white; text-decoration: none;">About Us</a></li>
+        <li><a href="service.html" style="color: white; text-decoration: none;">Services</a></li>
+        <li><a href="shop.html" style="color: white; text-decoration: none;">Shop</a></li>
+        <li><a href="appointment.html" style="color: white; text-decoration: none;">Appointment</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">Services</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="checkup.html" style="color: white; text-decoration: none;">Checkup</a></li>
+        <li><a href="vaccination.html" style="color: white; text-decoration: none;">Vaccination</a></li>
+        <li><a href="surgery.html" style="color: white; text-decoration: none;">Surgery</a></li>
+		<li><a href="grooming.html" style="color: white; text-decoration: none;">Grooming</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">About Purrever Care</h3>
+      <p style="margin-bottom: 15px; font-size: 1em;">
+        At Purrever Care, we are a compassionate team of veterinary professionals committed to keeping your furry friends healthy and happy.
+      </p>
+      <h3 style="font-size: 1.5em; margin-bottom: 10px;">Follow Us</h3>
+      <div style="margin-top: 10px;">
+        <a href="#" style="color: white; text-decoration: none; margin-right: 20px; font-size: 1.8em;">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#" style="color: white; text-decoration: none; margin-right: 20px; font-size: 1.8em;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" style="color: white; text-decoration: none; font-size: 1.8em;">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align: center; background-color: #00274d; padding: 15px; font-size: 0.9em;">
+    © 2025 Purrever Care Veterinary Clinic | Where every pet matters
+  </div>
+</footer>
+
+</body>
+</html>
