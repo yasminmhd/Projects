@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Food | Purrever Care Veterinary Clinic</title>
+   <link rel="icon" type="image/png" href="images/logo2.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    header {
+      background-color: #00274d;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+	
+	.logo {
+	  width: 550px;
+	  height: auto;
+	  display: block;
+	  margin: 0 auto;
+	}
+
+    nav {
+      background-color: #0055a5;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+	
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #0055a5;
+	  min-width: 160px;
+	  text-align: left;
+	  z-index: 1;
+	  border-radius: 5px;
+	}
+
+	.dropdown-content a {
+	  color: white;
+	  padding: 10px 16px;
+	  display: block;
+	  text-decoration: none;
+	  font-weight: normal;
+	}
+
+	.dropdown-content a:hover {
+	  background-color: #003f7f;
+	}
+
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+
+	.top-controls {
+	  display: flex;
+	  align-items: center;
+	  padding: 10px 40px;
+	  gap: 20px; /* optional spacing */
+	}
+
+	.top-controls > div:nth-child(2) {
+	  flex: 1;
+	  text-align: center;
+	  margin-left: 270px;
+	}
+
+    .cart-logo {
+      width: 40px;
+      cursor: pointer;
+    }
+
+    .category-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .category-buttons button {
+      padding: 10px 15px;
+      background-color: #0055a5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .category-buttons button:hover {
+      background-color: #003f7f;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      padding: 20px 40px;
+      max-width: 1000px;
+      margin: auto;
+	  margin-top: 35px;
+    }
+
+    .product-card {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #fdfdfd;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-card p {
+      margin: 10px 0;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+
+    .product-card button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0055a5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background-color: #003f7f;
+    }
+
+    footer {
+      background-color: #00274d;
+      text-align: center;
+      padding: 15px;
+      color: white;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .products-container {
+        grid-template-columns: 1fr;
+      }
+
+      .top-controls {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Purrever Care Logo" class="logo">
+</header>
+
+<nav>
+  <a href="Interface.html">Home</a>
+  <a href="aboutus.html">About Us</a>
+
+  <div class="dropdown">
+    <a href="service.html">Services</a>
+    <div class="dropdown-content">
+      <a href="checkup.html">Checkup</a>
+      <a href="vaccination.html">Vaccination</a>
+      <a href="surgery.html">Surgery</a>
+      <a href="grooming.html">Grooming</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="shop.html">Shop</a>
+    <div class="dropdown-content">
+      <a href="petfood.html">Pet Food</a>
+      <a href="supplement.html">Supplements</a>
+      <a href="others.html">Others</a>
+    </div>
+  </div>
+
+  <a href="appointment.html">Appointment</a>
+  <a href="account.html">Account</a>
+</nav>
+
+<div class="top-controls">
+  <div style="position: relative;">
+    <img src="images/cart.png" alt="Cart" class="cart-logo" onclick="toggleCartPopup()">
+    <span id="cart-count" style="
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 3px 7px;
+      font-size: 0.8em;
+      font-weight: bold;
+    ">0</span>
+  </div>
+
+  <div>
+    <h2 style="font-size: 2.2em; color: #00274d; margin: 1;">Our Pet Food Selection</h2>
+    <p style="font-size: 1.1em; color: #444; margin: 0;">Delicious bites for your best friends!</p>
+  </div>
+
+  <div class="category-buttons">
+    <button onclick="location.href='petfood.html'">Pet Food</button>
+    <button onclick="location.href='supplement.html'">Supplement</button>
+    <button onclick="location.href='others.html'">Others</button>
+  </div>
+</div>
+
+  <section class="products-container">
+    <div class="product-card">
+      <img src="images/dog.jpg" alt="Dog Food 1">
+      <p>ProBalance Lamb Wet Food - RM 25.00</p>
+      <button onclick="addToCart('ProBalance Lamb Wet Food', 25.00, 'images/dog.jpg')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/cat.png" alt="Cat Food 1">
+      <p>Royal Canine Hair Skin Wet Food - RM 4.50</p>
+      <button onclick="addToCart('Royal Canine Hair Skin Wet Food', 22.50, 'images/cat.png')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/puppy.png" alt="Puppy Food">
+      <p>Royal Canine Puppy Dry Food (Medium) - RM 30.00</p>
+      <button onclick="addToCart('Royal Canine Puppy Dry Food (Medium)', 30.00, 'images/puppy.png')">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/kitten.jpeg" alt="Kitten Food">
+      <p>Royal Canine Kitten Wet Food - RM 5.90</p>
+      <button onclick="addToCart('Royal Canine Kitten Wet Food', 28.90, 'images/kitten.jpeg')">Add to Cart</button>
+    </div>
+  </section>
+  
+<footer>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 50px 50px; background-color: #00274d; color: white; text-align: left;">
+    
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">Menu</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="Interface.html" style="color: white; text-decoration: none;">Home</a></li>
+        <li><a href="aboutus.html" style="color: white; text-decoration: none;">About Us</a></li>
+        <li><a href="service.html" style="color: white; text-decoration: none;">Services</a></li>
+        <li><a href="shop.html" style="color: white; text-decoration: none;">Shop</a></li>
+        <li><a href="appointment.html" style="color: white; text-decoration: none;">Appointment</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">Services</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="checkup.html" style="color: white; text-decoration: none;">Checkup</a></li>
+        <li><a href="vaccination.html" style="color: white; text-decoration: none;">Vaccination</a></li>
+        <li><a href="surgery.html" style="color: white; text-decoration: none;">Surgery</a></li>
+		<li><a href="grooming.html" style="color: white; text-decoration: none;">Grooming</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">About Purrever Care</h3>
+      <p style="margin-bottom: 15px; font-size: 1em;">
+        At Purrever Care, we are a compassionate team of veterinary professionals committed to keeping your furry friends healthy and happy.
+      </p>
+      <h3 style="font-size: 1.5em; margin-bottom: 10px;">Follow Us</h3>
+      <div style="margin-top: 10px;">
+        <a href="#" style="color: white; text-decoration: none; margin-right: 20px; font-size: 1.8em;">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#" style="color: white; text-decoration: none; margin-right: 20px; font-size: 1.8em;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" style="color: white; text-decoration: none; font-size: 1.8em;">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align: center; background-color: #00274d; padding: 15px; font-size: 0.9em;">
+    © 2025 Purrever Care Veterinary Clinic | Where every pet matters
+  </div>
+</footer>
+
+<div id="cart-popup" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: white;
+  border: 2px solid #0055a5;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 20px;
+  z-index: 9999;
+">
+  <span onclick="toggleCartPopup()" style="
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #888;
+    font-weight: bold;
+  ">&times;</span>
+
+	  <h3 style="margin-top: 0;">Your Cart</h3>
+	  <div id="popup-cart-items"></div>
+	  <div id="popup-total" style="text-align: right; margin-top: 10px;">Total: RM 0.00</div>
+	  <div style="text-align: center; margin-top: 15px;">
+	<button onclick="goToCheckout()" style="
+	  background-color: #0055a5;
+	  color: white;
+	  border: none;
+	  padding: 10px 20px;
+	  border-radius: 5px;
+	  font-weight: bold;
+	  cursor: pointer;
+	">Checkout</button>
+  </div>
+</div>
+
+<!-- Modal Popup -->
+<div id="login-popup" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+">
+  <div style="
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  ">
+    <p style="font-size: 1.2em; margin-bottom: 20px;">Please log in first</p>
+    <button onclick="closePopup()" style="
+      margin-right: 15px;
+      padding: 8px 15px;
+      background: #ccc;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    ">Cancel</button>
+    <button onclick="location.href='login.html'" style="
+      padding: 8px 15px;
+      background: #0055a5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    ">Login</button>
+  </div>
+</div>
+
+<script>
+  // Simulated login check — replace with your real login state logic
+let isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+function addToCart(name, price, image) {
+  if (!isLoggedIn) {
+    // Show popup if not logged in
+    document.getElementById('login-popup').style.display = 'flex';
+    return;
+  }
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existingProductIndex = cart.findIndex(item => item.name === name);
+  if (existingProductIndex >= 0) {
+    cart[existingProductIndex].quantity += 1;
+  } else {
+    cart.push({ name, price, quantity: 1, image: image });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${name} added to cart!`);
+  updateCartCount();
+}
+
+function displayPopupCart() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const popupItems = document.getElementById("popup-cart-items");
+  const popupTotal = document.getElementById("popup-total");
+
+  if (cart.length === 0) {
+    popupItems.innerHTML = "<p>Your cart is empty.</p>";
+    popupTotal.innerText = "Total: RM 0.00";
+    return;
+  }
+
+  let total = 0;
+  popupItems.innerHTML = cart.map((item, index) => {
+    total += item.price * item.quantity;
+    return `
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid #ccc; padding: 10px 0;">
+        <img src="${item.image}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+        <div style="flex: 1; min-width: 150px;">
+          <strong>${item.name}</strong><br>
+          <small>RM ${item.price.toFixed(2)}</small>
+        </div>
+        <div style="display: flex; align-items: center; gap: 5px;">
+          <button onclick="updateQuantity(${index}, -1)">−</button>
+          <span>${item.quantity}</span>
+          <button onclick="updateQuantity(${index}, 1)">+</button>
+        </div>
+        <button onclick="removeFromCart(${index})" style="margin-left: auto;">Remove</button>
+      </div>
+    `;
+  }).join("");
+
+  popupTotal.innerText = `Total: RM ${total.toFixed(2)}`;
+}
+
+function updateQuantity(index, delta) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const item = cart[index];
+
+  if (item) {
+    if (delta < 0 && item.quantity > 1) {
+      item.quantity += delta;
+    } else if (delta > 0 && item.quantity < 10) {
+      item.quantity += delta;
+    } else if (delta > 0) {
+      alert("You can't have more than 10 of this product.");
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayPopupCart();
+    updateCartCount();
+  }
+}
+
+function removeFromCart(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (cart[index]) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayPopupCart();
+    updateCartCount();
+  }
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let countElement = document.getElementById("cart-count");
+  
+  // If you don't have a cart-count badge, just skip it gracefully
+  if (!countElement) return;
+
+  let totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  if (totalItems > 0) {
+    countElement.innerText = totalItems;
+    countElement.style.display = "inline-block";
+  } else {
+    countElement.style.display = "none";
+  }
+}
+
+function toggleCartPopup() {
+  const popup = document.getElementById("cart-popup");
+  if (popup.style.display === "none" || popup.style.display === "") {
+    displayPopupCart();
+    popup.style.display = "block";
+  } else {
+    popup.style.display = "none";
+  }
+}
+
+function goToCheckout() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (cart.length === 0) {
+    alert("Your cart is empty. Please add items before proceeding to checkout.");
+    return;
+  }
+  window.location.href = "checkout.html";
+}
+
+function closePopup() {
+  document.getElementById('login-popup').style.display = 'none';
+}
+
+// Initialize count on page load
+updateCartCount();
+</script>
+
+</body>
+</html>

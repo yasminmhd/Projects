@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surgery | Purrever Care Veterinary Clinic</title>
+   <link rel="icon" type="image/png" href="images/logo2.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    header {
+      background-color: #00274d;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+	
+	.logo {
+	  width: 550px;
+	  height: auto;
+	  display: block;
+	  margin: 0 auto;
+	}
+
+    nav {
+      background-color: #0055a5;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+	
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #0055a5;
+	  min-width: 160px;
+	  text-align: left;
+	  z-index: 1;
+	  border-radius: 5px;
+	}
+
+	.dropdown-content a {
+	  color: white;
+	  padding: 10px 16px;
+	  display: block;
+	  text-decoration: none;
+	  font-weight: normal;
+	}
+
+	.dropdown-content a:hover {
+	  background-color: #003f7f;
+	}
+
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+
+    .surgery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .surgery-image {
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .surgery-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .surgery-details {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .surgery-details h2 {
+      color: #0055a5;
+      margin-bottom: 20px;
+    }
+
+    .surgery-details ul {
+      list-style-type: square;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+
+    .surgery-details ul li {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    .surgery-details .book-button {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #0055a5;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .surgery-details .book-button:hover {
+      background-color: #003f7f;
+    }
+
+    footer {
+      background-color: #00274d;
+      text-align: center;
+      padding: 15px;
+      color: white;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Purrever Care Logo" class="logo">
+</header>
+
+<nav>
+  <a href="Interface.html">Home</a>
+  <a href="aboutus.html">About Us</a>
+
+  <div class="dropdown">
+    <a href="service.html">Services</a>
+    <div class="dropdown-content">
+      <a href="checkup.html">Checkup</a>
+      <a href="vaccination.html">Vaccination</a>
+      <a href="surgery.html">Surgery</a>
+      <a href="grooming.html">Grooming</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="shop.html">Shop</a>
+    <div class="dropdown-content">
+      <a href="petfood.html">Pet Food</a>
+      <a href="supplement.html">Supplements</a>
+      <a href="others.html">Others</a>
+    </div>
+  </div>
+
+  <a href="appointment.html">Appointment</a>
+  <a href="account.html">Account</a>
+</nav>
+
+<section style="background-color: #f9f9f9; padding: 40px 20px 20px; text-align: center;">
+  <h1 style="margin: 0; font-size: 2.5em; color: #00274d;">Surgery</h1>
+  <p style="font-size: 1.2em; color: #333;">Expert care when your pet needs it most.</p>
+</section>
+
+  <section class="surgery-container">
+    <div class="surgery-image">
+      <img src="images/surgery.PNG" alt="Surgery procedures image">
+    </div>
+    <div class="surgery-details">
+      <h2>Surgery Available:</h2>
+      <ul>
+		<li><strong>Spay & Neuter:</strong><br>Routine surgical procedures that prevent unwanted litters and reduce the risk of certain cancers and behavioral issues in both cats and dogs.</li>
+		<li><strong>Tumor Removal:</strong><br>Surgical removal of benign or malignant growths to improve your pet’s health and comfort. Early detection and removal are key to better outcomes.</li>
+		<li><strong>Orthopedic Surgery:</strong><br>Specialized procedures to treat bone, joint, or ligament issues such as fractures or cruciate ligament tears. Helps restore mobility and reduce pain.</li>
+		<li><strong>Dental Surgery:</strong><br>Removal of severely damaged or infected teeth and treatment of oral conditions. Promotes better overall health and prevents future complications.</li>
+      </ul>
+      <a href="appointment.html" class="book-button">Book Now</a>
+    </div>
+  </section>
+
+<footer>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 50px 50px; background-color: #00274d; color: white; text-align: left;">
+    
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">Menu</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="Interface.html" style="color: white; text-decoration: none;">Home</a></li>
+        <li><a href="aboutus.html" style="color: white; text-decoration: none;">About Us</a></li>
+        <li><a href="service.html" style="color: white; text-decoration: none;">Services</a></li>
+        <li><a href="shop.html" style="color: white; text-decoration: none;">Shop</a></li>
+        <li><a href="appointment.html" style="color: white; text-decoration: none;">Appointment</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">Services</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="checkup.html" style="color: white; text-decoration: none;">Checkup</a></li>
+        <li><a href="vaccination.html" style="color: white; text-decoration: none;">Vaccination</a></li>
+        <li><a href="surgery.html" style="color: white; text-decoration: none;">Surgery</a></li>
+		<li><a href="grooming.html" style="color: white; text-decoration: none;">Grooming</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">About Purrever Care</h3>
+      <p style="margin-bottom: 15px; font-size: 1em;">
+        At Purrever Care, we are a compassionate team of veterinary professionals committed to keeping your furry friends healthy and happy.
+      </p>
+      <h3 style="font-size: 1.5em; margin-bottom: 10px;">Follow Us</h3>
+      <div style="margin-top: 10px;">
+        <a href="#" style="color: white; text-decoration: none; margin-right: 20px; font-size: 1.8em;">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#" style="color: white; text-decoration: none; margin-right: 20px; font-size: 1.8em;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" style="color: white; text-decoration: none; font-size: 1.8em;">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align: center; background-color: #00274d; padding: 15px; font-size: 0.9em;">
+    © 2025 Purrever Care Veterinary Clinic | Where every pet matters
+  </div>
+</footer>
+
+</body>
+</html>

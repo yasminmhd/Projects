@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Purrever Care Veterinary Clinic</title>
+   <link rel="icon" type="image/png" href="images/logo2.png">
+  <style>
+	*, *::before, *::after {
+	  box-sizing: border-box;
+	}
+  
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #00274d;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+	
+	.logo {
+	  width: 550px;
+	  height: auto;
+	  display: block;
+	  margin: 0 auto;
+	}
+	
+	.section-title {
+	  text-align: center;
+	  font-size: 2.5em;
+	  margin: 40px 0 20px;
+	  color: #00274d;
+	  font-weight: bold;
+	  position: relative;
+	}
+
+	.section-title::after {
+	  content: '';
+	  display: block;
+	  width: 60px;
+	  height: 4px;
+	  background-color: #0055a5;
+	  margin: 5px auto 0;
+	  border-radius: 2px;
+	}
+
+    .signup-container {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  min-height: 50vh;
+	  padding: 20px 0;
+	}
+
+    .signup-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .signup-form h2 {
+      text-align: center;
+      color: #00274d;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #0055a5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #003f7f;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .login-link a {
+      text-decoration: none;
+      color: #0055a5;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Purrever Care Logo" class="logo">
+</header>
+
+<h2 class="section-title">Create an Account</h2>	
+
+<p style="text-align: center; font-size: 1.1em; color: #333;">Join us and experience the best pet care!</p>
+
+  <div class="signup-container">
+    <form class="signup-form" action="login.html" method="POST" onsubmit="signup(event)">
+      <h2>Sign Up</h2>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+      <button type="submit">Sign Up</button>
+
+      <div class="login-link">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function signup(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match. Please try again.');
+        return;
+      }
+
+      // Simulate account creation (you can add real backend logic here)
+      alert('Account created successfully!');
+      window.location.href = 'login.html'; // Redirect to login page after successful sign-up
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointment Form - Purrever Care</title>
+  <link rel="icon" type="image/png" href="images/logo2.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    header {
+      background-color: #00274d;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+	
+	.logo {
+	  width: 550px;
+	  height: auto;
+	  display: block;
+	  margin: 0 auto;
+	}
+
+    nav {
+      background-color: #0055a5;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+	nav a.active {
+	  border-bottom: 3px solid #ffffff;
+	}
+
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #0055a5;
+	  min-width: 160px;
+	  text-align: left;
+	  z-index: 1;
+	  border-radius: 5px;
+	}
+
+	.dropdown-content a {
+	  color: white;
+	  padding: 10px 16px;
+	  display: block;
+	  text-decoration: none;
+	  font-weight: normal;
+	}
+
+	.dropdown-content a:hover {
+	  background-color: #003f7f;
+	}
+
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+
+    .form-container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 40px;
+      border: 3px solid #0055a5;
+      border-radius: 10px;
+      background-color: #f5faff;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .selected-date {
+      text-align: center;
+      background-color: #dbeeff;
+      color: #003f7f;
+      padding: 10px 20px;
+      margin-bottom: 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1em;
+      display: inline-block;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+      margin-top: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 2px solid #0055a5;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      background-color: #0055a5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+
+    button:hover {
+      background-color: #003f7f;
+    }
+
+    footer {
+      background-color: #00274d;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="Purrever Care Logo" class="logo">
+</header>
+
+<nav>
+  <a href="Interface.html">Home</a>
+  <a href="aboutus.html">About Us</a>
+
+  <div class="dropdown">
+    <a href="service.html">Services</a>
+    <div class="dropdown-content">
+      <a href="checkup.html">Checkup</a>
+      <a href="vaccination.html">Vaccination</a>
+      <a href="surgery.html">Surgery</a>
+      <a href="grooming.html">Grooming</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="shop.html">Shop</a>
+    <div class="dropdown-content">
+      <a href="petfood.html">Pet Food</a>
+      <a href="supplement.html">Supplements</a>
+      <a href="others.html">Others</a>
+    </div>
+  </div>
+
+    <a href="appointment.html" class="active">Appointment</a>
+    <a href="account.html">Account</a>
+  </nav>
+
+  <div class="form-container">
+    <h2>Appointment Details</h2>
+    <div class="selected-date" id="displayDate">Selected Date: —</div>
+
+    <form id="appointmentForm">
+      <label for="ownerName">Owner Name:</label>
+      <input type="text" id="ownerName" name="ownerName" required />
+
+      <label for="contact">Contact Number:</label>
+      <input type="tel" id="contact" name="contact" required />
+
+      <label for="petType">Pet's Type:</label>
+      <select id="petType" name="petType" required>
+        <option value="">--Select--</option>
+        <option value="Cat">Cat</option>
+        <option value="Dog">Dog</option>
+        <option value="Rabbit">Rabbit</option>
+        <option value="Hamster">Hamster</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <label for="reason">Reason for Appointment:</label>
+      <select id="reason" name="reason" required>
+        <option value="">--Select--</option>
+        <option value="Full-Body Checkup">Full-Body Checkup</option>
+        <option value="Vaccination">Vaccination</option>
+        <option value="Surgery">Surgery</option>
+        <option value="Grooming">Grooming</option>
+      </select>
+
+      <button type="submit">Submit Appointment</button>
+    </form>
+  </div>
+
+<footer>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; padding: 50px 50px; background-color: #00274d; color: white; text-align: left;">
+    
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">Menu</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="Interface.html" style="color: white; text-decoration: none;">Home</a></li>
+        <li><a href="aboutus.html" style="color: white; text-decoration: none;">About Us</a></li>
+        <li><a href="service.html" style="color: white; text-decoration: none;">Services</a></li>
+        <li><a href="shop.html" style="color: white; text-decoration: none;">Shop</a></li>
+        <li><a href="appointment.html" style="color: white; text-decoration: none;">Appointment</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">Services</h3>
+      <ul style="list-style: none; padding: 0; line-height: 1.8;">
+        <li><a href="checkup.html" style="color: white; text-decoration: none;">Checkup</a></li>
+        <li><a href="vaccination.html" style="color: white; text-decoration: none;">Vaccination</a></li>
+        <li><a href="surgery.html" style="color: white; text-decoration: none;">Surgery</a></li>
+		<li><a href="grooming.html" style="color: white; text-decoration: none;">Grooming</a></li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 200px; margin: 10px;">
+      <h3 style="font-size: 1.5em; margin-bottom: 15px;">About Purrever Care</h3>
+      <p style="margin-bottom: 15px; font-size: 1em;">
+        At Purrever Care, we are a compassionate team of veterinary professionals committed to keeping your furry friends healthy and happy.
+      </p>
+      <h3 style="font-size: 1.5em; margin-bottom: 10px;">Follow Us</h3>
+      <div style="margin-top: 10px;">
+        <a href="#" style="color: white; text-decoration: none; margin-right: 20px; font-size: 1.8em;">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#" style="color: white; text-decoration: none; margin-right: 20px; font-size: 1.8em;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" style="color: white; text-decoration: none; font-size: 1.8em;">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align: center; background-color: #00274d; padding: 15px; font-size: 0.9em;">
+    © 2025 Purrever Care Veterinary Clinic | Where every pet matters
+  </div>
+</footer>
+
+<script>
+  const selectedDate = localStorage.getItem("selectedDate");
+  if (selectedDate) {
+    document.getElementById("displayDate").textContent = "Selected Date: " + selectedDate;
+  }
+
+  document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("ownerName").value;
+    const contact = document.getElementById("contact").value;
+    const petType = document.getElementById("petType").value;
+    const reason = document.getElementById("reason").value;
+    const date = selectedDate || "Not selected";
+
+    const receiptHtml = `
+      <p><strong>Owner Name:</strong> ${name}</p>
+      <p><strong>Contact Number:</strong> ${contact}</p>
+      <p><strong>Pet Type:</strong> ${petType}</p>
+      <p><strong>Reason:</strong> ${reason}</p>
+      <p><strong>Appointment Date:</strong> ${date}</p>
+    `;
+
+    document.getElementById("receiptContent").innerHTML = receiptHtml;
+    document.getElementById("receiptModal").style.display = "block";
+
+    this.reset(); // Optional: clear the form
+  });
+
+  function closeModal() {
+    document.getElementById("receiptModal").style.display = "none";
+    window.location.href = "Interface.html"; // Redirect to homepage
+  }
+</script>
+
+<!-- Receipt Modal -->
+<div id="receiptModal" style="display: none;">
+  <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+              background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center;">
+    <div style="background: #fff; padding: 30px; border-radius: 10px; width: 400px; box-shadow: 0 0 15px rgba(0,0,0,0.3); position: relative;">
+      <h3 style="text-align:center; color:#0055a5;">Appointment Receipt</h3>
+      <div id="receiptContent" style="margin-top: 20px; font-size: 1em;"></div>
+      <button onclick="closeModal()" style="margin-top: 25px; width: 100%; padding: 12px; background-color: #0055a5; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Close</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

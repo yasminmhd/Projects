@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - Purrever Care</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00274d;
+    }
+
+    .cart-items {
+      max-width: 600px;
+      margin: auto;
+      border-top: 2px solid #0055a5;
+      padding-top: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    .item-info {
+      flex-grow: 1;
+    }
+
+    .cart-item span {
+      font-weight: bold;
+    }
+
+    .remove-btn {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .remove-btn:hover {
+      background-color: #c9302c;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.2em;
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button.checkout-btn {
+      padding: 12px 30px;
+      background-color: #0055a5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button.checkout-btn:hover {
+      background-color: #003f7f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="total" id="totalPrice">Total: RM 0.00</div>
+
+  <div class="controls" id="checkoutControls" style="display: none;">
+    <button class="checkout-btn" onclick="location.href='checkout.html'">Proceed to Checkout</button>
+  </div>
+
+  <script>
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartItemsContainer = document.getElementById("cartItems");
+      const totalPriceContainer = document.getElementById("totalPrice");
+      const checkoutControls = document.getElementById("checkoutControls");
+
+      cartItemsContainer.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        totalPriceContainer.textContent = "Total: RM 0.00";
+        checkoutControls.style.display = "none";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "cart-item";
+
+        itemDiv.innerHTML = `
+          <div class="item-info">
+            <span>${item.name}</span> - <span>RM ${item.price.toFixed(2)}</span>
+          </div>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        `;
+
+        cartItemsContainer.appendChild(itemDiv);
+        total += item.price;
+      });
+
+      totalPriceContainer.textContent = "Total: RM " + total.toFixed(2);
+      checkoutControls.style.display = "block";
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    loadCart();
+  </script>
+</body>
+</html>
